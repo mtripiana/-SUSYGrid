@@ -1,0 +1,23 @@
+#!/bin/bash
+
+if [ $# -lt 1 ]; then
+    MYFILE="slhaspectrum.in"
+else
+    MYFILE=$1
+fi
+
+if [ $# -le 2 ]; then
+    TOPMASS=2.50000000E+03
+else
+    TOPMASS=$2
+fi
+
+cat $1 |  awk '{
+
+      if ($1 == "BLOCK") Block=$2
+      if (Block=="MASS" && $1==1000006) printf "%3s%5s%5s%1.8E%4s %2s\n","",$1,"",'$TOPMASS',$3,$4;
+      else print $0;
+
+}' > mytemp.tmp
+
+mv mytemp.tmp $1

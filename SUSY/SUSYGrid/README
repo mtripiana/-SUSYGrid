@@ -1,0 +1,71 @@
+SUSYGrid README - 
+Last update: 2013-05-12, Martin Tripiana (tripiana@cern.ch)
+
+
+** Welcome!
+
+The SUSYGrid package provides a series of scripts and hacks to create and analyze the .slha files for SUSY spectra, 
+through the SUSYHIT (http://www.itp.kit.edu/~maggie/SUSY-HIT/) interface package.
+
+It is customized at the moment to run in the context of GGM models, but can be easily adapted to fit other SUSY
+scenarios. 
+
+
+
+Installation
+--------------------
+just run the setup.sh script provided. It installs and compiles SUSYHIT and SuSpect packages, and sets the proper 
+directory structure.
+
+How to run
+--------------------
+
+  1. LOCAL
+  -----------
+To run your jobs type: 
+
+  . RunDir/runSUSYGrid.sh
+
+and check the available options. 
+
+
+  2. LXPLUS BATCH
+  -----------
+
+For large grid runs, a more practical to run it is by making profit of the bath system on lxplus.
+(check some details here http://hepuser.ucsd.edu/twiki/bin/view/HEPProjects/BatchJobsOnLxplus) 
+
+To submit your jobs just call : 
+
+  . RunDir/subjobs_SUSYGrid.sh
+
+and check the available options. 
+
+
+Run MODES
+----------
+There are three running modes at the moment.
+   
+- 0 : custom mode                 Run over custom & discrete arrays (M1,mu,M3,Msq). It is configurable in python/SUSYHIT_SinglePhotonGrid_makeconfigfile.py
+- 1 : scan mode                   Run a scan over (mu,M1) sub-space. It is configurable in python/SUSYHIT_SinglePhotonGrid_makeconfigfile_scan.py
+                                  Check alternatives for mu<-->M1 relation (fraction, mu-fixed, mu-positive, É)
+- 2 : grave mass scan mode        Run scan for gravitino mass, for a given discrete grid arrangement. It is configurable in python/SUSYHIT_SinglePhotonGrid_makeconfigfile_mGravScan.py
+
+Output
+----------
+
+The output you get is a tarsal file with all the .slha files (*out) and a summary file where all the relevant parameters 
+of the grid have been extracted (summary/SUSYGrid_out_pars.dat).
+By default is located in: 
+
+   RunDir/output/SLHA
+
+
+
+
+
+Other features are available/will come soon...
+
+Please take a look and let me know if you find some problems/have suggestions of any kind. 
+
+Enjoy it, Martin
