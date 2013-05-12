@@ -46,9 +46,9 @@ cd ..
 ## create 
 echo
 echo ">> creating dir structure..."
-mkdir -p Rundir/plots
-mkdir -p Rundir/logs
-mkdir -p Rundir/output/SLHA
+mkdir -p RunDir/plots
+mkdir -p RunDir/logs
+mkdir -p RunDir/output/SLHA
 mkdir tar
 mv susyhit.tar.gz tar/
 mv SuSpect/suspect2.tar.gz tar/
