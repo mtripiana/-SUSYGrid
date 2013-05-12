@@ -214,7 +214,7 @@ echo ' copying back data to '$SUSYOUTPATH/SUSYGRID$TAG$TODAY$MYTAG.tar.gz
 
 tar zcfv $SUSYOUTPATH/SUSYGRID$TAG$TODAY$MYTAG.tar.gz M1*out summary/*dat
 
-cd $BASEPATH
+cd $BASEPATH/RunDir
 #echo 'we are back in '${PWD}
 rm -rf ${tmpDir}
 echo 'Cleanup done!'
