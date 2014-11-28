@@ -2,8 +2,9 @@
 
 ## CONFIG PATHS
 
-BASEPATH=`dirname $PWD`
-
+#BASEPATH=`dirname $PWD`
+: ${SGRIDENV:?" You need to set SGRIDENV before !! Please source env.sh script and and get back..."}
+BASEPATH=$SGRIDENV
 SUSYOUTPATH=$BASEPATH"/RunDir/output/SLHA/"
 
 ###
@@ -19,7 +20,7 @@ if [ -z $1 ] ; then
   echo "         TanBeta     in case you want to set TanBeta by hand (1.5 by default)"
   echo "         Date        current date to tag output tar file (optional) [TODAY by default]"
   echo "         YourTag     a tag of your choice for the output tar file (optional)"
-  exit -1
+  return 0
 fi
 
 #Running mode  [custom or scan]
@@ -91,7 +92,7 @@ echo ' Creating configurations file '
 
 cp $BASEPATH/RunDir/python/SUSYHIT_SinglePhotonGrid_makeconfigfile$FTAG.py SUSYHIT_SinglePhotonGrid_makeconfigfile.py
 
-./SUSYHIT_SinglePhotonGrid_makeconfigfile.py $CONFIGFILE $1 $3 $4
+python SUSYHIT_SinglePhotonGrid_makeconfigfile.py $CONFIGFILE $1 $3 $4
 
 #create output dir
 mkdir -p $SUSYOUTPATH
@@ -162,7 +163,7 @@ while read -r sample ; do
     if [ "$customGmass" -eq 1 ];then
 	./AddGravitino slhaspectrum.in $Gmass
     else
-	./AddGravitino slhaspectrum.in 5E-10
+	./AddGravitino slhaspectrum.in 1E-9
 #	./AddGravitino slhaspectrum.in 5E-7
     fi
 

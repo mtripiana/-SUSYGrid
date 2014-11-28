@@ -27,7 +27,8 @@ echo
 echo "*** getting SuSpect package from source..."
 mkdir -p SuSpect
 cd SuSpect
-curl -O http://www.lpta.univ-montp2.fr/users/kneur/Suspect/suspect2.tar.gz
+#curl -O http://www.lpta.univ-montp2.fr/users/kneur/Suspect/suspect2.tar.gz
+curl -O http://www.coulomb.univ-montp2.fr/perso/jean-loic.kneur/Suspect/suspect2.tar.gz
 
 ## untar 
 echo
@@ -52,6 +53,10 @@ mkdir -p RunDir/output/SLHA
 mkdir tar
 mv susyhit.tar.gz tar/
 mv SuSpect/suspect2.tar.gz tar/
+
+##create envsetup script
+echo "export SGRIDENV=$PWD" > env.sh
+chmod +x env.sh
 
 echo
 echo "GO!!"
