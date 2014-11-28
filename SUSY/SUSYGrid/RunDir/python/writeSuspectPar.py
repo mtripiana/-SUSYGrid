@@ -27,7 +27,7 @@ Block SU_ALGO  # !Optional SUSPECT v>=2.3* block: algorithm control parameters
    4    2   # RGE accuracy: 1: moderate, 2: accurate (but slower)
    6    1   #  1: M_Hu, M_Hd input (default in constrained models)
 #        (other possibility 0: MA_pole, MU(EWSB) input instead)
-   7    1   #  choice for sparticles masses rad. corr. (=/= h):
+   7    2   #  choice for sparticles masses rad. corr. (=/= h):
 #               2 ->all (recommended, defaut); 1->no R.C. in squarks & gauginos.
    8    0   # 1 (default): EWSB scale=(mt_L*mt_R)^(1/2)
 #         (Or = 0: arbitrary EWSB scale: give EWSB in Block EXTPAR below)
@@ -94,6 +94,8 @@ SLHAInput = SLHAInputTemplate.substitute({
     'tanBeta' : tanBeta,
     })
 ################################################################################
+#pbase=os.getenv("SGRIDENV")
+#InFile = open(pbase+'/SuSpect/suspect2_lha.in', 'w')
 InFile = open('../SuSpect/suspect2_lha.in', 'w')
 InFile.write(SLHAInput)
 InFile.close()

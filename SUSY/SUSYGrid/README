@@ -17,6 +17,8 @@ Installation
 just run the setup.sh script provided. It installs and compiles SUSYHIT and SuSpect packages, and sets the proper 
 directory structure.
 
+Then, you have to source the 'env.sh' script everytime you come back.
+
 How to run
 --------------------
 
